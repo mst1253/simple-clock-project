@@ -16,14 +16,23 @@ let counter=document.querySelector('.counter');
 const startButt=document.querySelector('.startButt');
  let  theTimer=document.querySelector('.timer');
  const stopButt=document.querySelector('.stopButt');
+ const pauseAlarm=document.querySelector('.pause-alarm');
  const stopAlarm=document.querySelector('.stop-alarm');
- 
+ let pauseStop=document.querySelector('.pauseStop');
+
  
  function addSpeech(){
- let speech=new SpeechSynthesisUtterance("it's time to make it happen");
-  speechSynthesis.speak(speech);
-   return speech
-}
+ const  speech=new SpeechSynthesisUtterance("it's time to make it happen");
+  pauseStop.style.display='grid';
+ speechSynthesis.speak(speech);
+ pauseAlarm.onclick=()=>{
+  speechSynthesis.speaking?speechSynthesis.pause():null;
+ }
+ /*stopAlarm.onclick=()=>{
+   speechSynthesis.resume();
+   speechSynthesis.cancel();
+   pauseAlarm.classList.add('toRight');
+}*/
 }
 
  const alarmClock=()=>{
@@ -32,7 +41,7 @@ const startButt=document.querySelector('.startButt');
   let minutes = input[1].value;
   if(hours<24&&minutes<60){
   if (hours != '' && minutes != '' && hours.match(regx) && minutes.match(regx)) {
-    alarmTime.textContent = `${hours}:${minutes}`;
+    alarmTime.textContent=`${hours}:${minutes}`;
   }
   else {
     alarmTime.textContent = '';
@@ -54,9 +63,9 @@ const startButt=document.querySelector('.startButt');
 
 function runTime(alarmTime){
   setInterval(()=>{
-    let h = new Date().getHours();
-    let m = new Date().getMinutes();
-    let s = new Date().getSeconds();
+     let h = new Date().getHours();
+     let m = new Date().getMinutes();
+     let s = new Date().getSeconds();
     hour.textContent=`${h} :`
     min.textContent=`${m}`;
     sec.textContent=`${s}`;
@@ -87,15 +96,16 @@ function runTime(alarmTime){
     eye.style.background='gold'
    }
    if(`${h}:${m}`==alarmTime.textContent){
-     addSpeech();
-     stopAlarm.style.display='block'
-   }
+      addSpeech();
+    }
   })
 }
 runTime(alarmClock())
 
 choose.onclick = () => {
   alarmClock();
+    speechSynthesis.resume();
+    speechSynthesis.cancel();
 }
 alarm.addEventListener('click',()=>{
   setTimeout(()=>{
