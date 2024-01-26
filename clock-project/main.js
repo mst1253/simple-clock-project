@@ -20,12 +20,10 @@ const startButt=document.querySelector('.startButt');
  
  
  function addSpeech(){
-  const speech=new SpeechSynthesisUtterance("it's time to make it happen");
+ let speech=new SpeechSynthesisUtterance("it's time to make it happen");
   speechSynthesis.speak(speech);
    return speech
 }
-stopAlarm.onclick = (e) => {
-  speechSynthesis.pause(addSpeech(e));
 }
 
  const alarmClock=()=>{
@@ -141,9 +139,3 @@ startButt.onclick=()=>{
   timer();
 }
 
-/*function toBinary(num) {
-  return num.toString(2);
-}
-
-console.log(toBinary(5+3)); // Output: 101
-console.log(toBinary(12));*/
