@@ -40,7 +40,7 @@ const startButt=document.querySelector('.startButt');
   let hours = input[0].value;
   let minutes = input[1].value;
   if(hours<24&&minutes<60){
-  if (hours != '' && minutes != '' && hours.match(regx) && minutes.match(regx)) {
+  if(hours != '' && minutes != '' && hours.match(regx) && minutes.match(regx)) {
     alarmTime.textContent=`${hours}:${minutes}`;
   }
   else {
