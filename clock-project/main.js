@@ -28,11 +28,6 @@ const startButt=document.querySelector('.startButt');
  pauseAlarm.onclick=()=>{
   speechSynthesis.speaking?speechSynthesis.pause():null;
  }
- /*stopAlarm.onclick=()=>{
-   speechSynthesis.resume();
-   speechSynthesis.cancel();
-   pauseAlarm.classList.add('toRight');
-}*/
 }
 
  const alarmClock=()=>{
