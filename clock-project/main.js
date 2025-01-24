@@ -79,10 +79,10 @@ function runTime(alarmTime){
    else if(h==12){
      dataNum[2].style.color='gold'
    }
-   if(h>=13){
+   if(h>12){
     pmAm.textContent='PM';
    }
-    else{
+    else if(h<=12){
     pmAm.textContent='AM';
     hourHand.style.setProperty('border', '4px solid gold');
     hourHand.style.setProperty('box-shadow', '0 0  50px gold');
