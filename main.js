@@ -118,7 +118,7 @@ alarmChoose.style.display='none';
 mainHero.style.display='none'
 })
 
-
+let isOkay=false;
 const timer=()=>{
   let timerH = 0;
   let timerM = 0;
@@ -136,11 +136,16 @@ const timer=()=>{
     }
     }
   },5) 
-  stopButt.onclick=()=>clearInterval(clock)
+  stopButt.onclick=()=>{
+    clearInterval(clock);
+    startButt.style.display='block'
+  };
+
 }
-startButt.onclick=()=>{
+startButt.addEventListener('click',()=>{
   stopButt.classList.add('toRight');
   startButt.classList.add('toTop');
-  timer()
-}
+  timer();
+  startButt.style.display='none'
+})
 
