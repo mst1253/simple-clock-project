@@ -135,7 +135,7 @@ const timer=()=>{
     timerH<10?timerH=`0${timerH}`:null
     }
     }
-  },5)
+  },5) 
   stopButt.onclick=()=>clearInterval(clock)
 }
 startButt.onclick=()=>{
