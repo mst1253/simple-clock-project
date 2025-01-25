@@ -141,6 +141,6 @@ const timer=()=>{
 startButt.onclick=()=>{
   stopButt.classList.add('toRight');
   startButt.classList.add('toTop');
-  timer();
+  timer()
 }
 
