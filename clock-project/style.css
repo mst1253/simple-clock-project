@@ -77,7 +77,6 @@ span:nth-child(10):before{
 span:nth-child(13):before{
   position:absolute;
   content:attr(data-num);
-  /*transform:rotate(83deg);*/
   margin-left:-10px;
   margin-top:-5px;
   background:none;
